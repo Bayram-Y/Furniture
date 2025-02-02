@@ -4,7 +4,7 @@ import { T } from "../libs/types/common";
 import ProductService from "../models/Product.service";
 import { ProductInput, ProductInquiry } from "../libs/types/product";
 import { AdminRequest, ExtentedRequest } from "../libs/types/member";
-import { ProductCollection } from "../libs/enums/product.enum";
+import { FurnitureCategory } from "../libs/enums/product.enum";
 
 const productService = new ProductService();
 
@@ -20,8 +20,8 @@ productController.getProducts = async (req: Request, res: Response) => {
       page: Number(page),
       limit: Number(limit),
     };
-    if (productCollection) {
-      inquiry.productCollection = productCollection as ProductCollection;
+    if (FurnitureCategory) {
+      inquiry.productCollection = productCollection as FurnitureCategory;
     }
     if (search) inquiry.search = String(search);
 
@@ -74,7 +74,7 @@ productController.createNewProduct = async (
 ) => {
   try {
     console.log("createNewProduct");
-    console.log("req.body:", req.body);
+    console.log("req.body:==>", req.body);
 
     if (!req.files?.length)
       throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);

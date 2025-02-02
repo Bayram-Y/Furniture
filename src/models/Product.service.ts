@@ -1,4 +1,4 @@
-import { ProductStatus } from "../libs/enums/product.enum";
+import { FurnitureStatus } from "../libs/enums/product.enum";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import {
@@ -29,7 +29,7 @@ class ProductService {
   public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
     console.log("req.inquiry:=>", inquiry);
 
-    const match: T = { productStatus: ProductStatus.PROCESS };
+    const match: T = { productStatus: FurnitureStatus.AVAILABLE };
 
     if (inquiry.productCollection)
       match.productCollection = inquiry.productCollection;
@@ -64,7 +64,7 @@ class ProductService {
     let result = await this.productModel
       .findOne({
         _id: productId,
-        productStatus: ProductStatus.PROCESS,
+        productStatus: FurnitureStatus.AVAILABLE,
       })
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
@@ -112,7 +112,7 @@ class ProductService {
     try {
       return await this.productModel.create(input);
     } catch (err) {
-      console.error("Error,model:createNewProduct:", err);
+      console.error("Error,model:=>createNewProduct:", err);
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }

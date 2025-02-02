@@ -1,3 +1,7 @@
+body {
+  background-image: url("../img/adminovoy2.jpg");
+}
+
 .users-container {
   position: relative;
   width: auto;

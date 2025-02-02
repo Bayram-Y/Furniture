@@ -11,7 +11,7 @@ const productSchema = new Schema(
     productStatus: {
       type: String,
       enum: FurnitureStatus,
-      default: FurnitureStatus.AVAILABLE,
+      default: FurnitureStatus.DISCONTINUED,
     },
 
     productCollection: {

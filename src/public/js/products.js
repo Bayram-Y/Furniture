@@ -4,7 +4,7 @@ $(function () {
   $(".product-collection").on("change", () => {
     const selectedValue = $(".product-collection").val();
 
-    if (selectedValue === "DRINK") {
+    if (selectedValue === "AQUARIUM") {
       $("#product-collection").hide();
       $("#product-volume").show();
     } else {

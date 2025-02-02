@@ -1,3 +1,7 @@
+body {
+  background-image: url("../img/ovoyadmin1.jpg");
+}
+
 .products-container {
   position: relative;
   width: auto;

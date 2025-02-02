@@ -1,20 +1,20 @@
 import { ObjectId } from "mongoose";
 
 import {
-  ProductCollection,
-  ProductSize,
-  ProductStatus,
-  ProductVolume,
+  FurnitureSize,
+  FurnitureStatus,
+  FurnitureCategory,
+  FurnitureVolume,
 } from "../enums/product.enum";
 
 export interface Product {
   _id: ObjectId;
-  productStatus: ProductStatus;
-  productCollection: ProductCollection;
+  productStatus: FurnitureStatus;
+  productCollection: FurnitureCategory;
   productName: string;
   productPrice: number;
   productLeftCount: number;
-  productSize: ProductSize;
+  productSize: FurnitureSize;
   productVolume: number;
   productDesc?: string;
   productImages: string[];
@@ -27,18 +27,18 @@ export interface ProductInquiry {
   order: string;
   page: number;
   limit: number;
-  productCollection?: ProductCollection;
+  productCollection?: FurnitureCategory;
   search?: string;
 }
 
 export interface ProductInput {
-  productStatus?: ProductStatus;
-  productCollection: ProductCollection;
+  productStatus?: FurnitureStatus;
+  productCollection: FurnitureCategory;
   productName: string;
   productPrice: number;
   productLeftCount: number;
-  productSize?: ProductSize;
-  productVolume?: number;
+  productSize?: FurnitureSize;
+  productVolume?: FurnitureVolume;
   productDesc?: string;
   productImages?: string[];
   productViews?: number;
@@ -46,12 +46,12 @@ export interface ProductInput {
 
 export interface ProductUpdateInput {
   _id: ObjectId;
-  productStatus?: ProductStatus;
-  productCollection?: ProductCollection;
+  productStatus?: FurnitureStatus;
+  productCollection?: FurnitureCategory;
   productName?: string;
   productPrice?: number;
   productLeftCount?: number;
-  productSize?: ProductSize;
+  productSize?: FurnitureSize;
   productVolume?: number;
   productDesc?: string;
   productImages?: string[];

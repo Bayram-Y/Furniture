@@ -29,13 +29,13 @@
       <div class="board">
         <div class="dishes-table">
           <span class="new-dish-txt" style="margin-bottom: 30px">
-            RESTAURANT MENU
+            FURNITURE MENU
           </span>
           <table class="table table-bordered table-hover">
             <thead class="thead-light">
               <tr class="thead-light">
                 <th scope="col">T/r</th>
-                <th scope="col">Product Name</th>
+                <th scope="col">Furniture Name</th>
                 <th scope="col">Product Type</th>
                 <th scope="col">Product Volume</th>
                 <th scope="col">Product Price</th>
@@ -43,14 +43,14 @@
                 <th scope="col">Status</th>
               </tr>
             </thead>
-            <!--  LOOP PRODUCTS: START  -->
+            
             <% products.map((value,key) => { %>
             <tbody style="background: white">
               <td><%= key + 1 %></td>
               <td><%= value.productName %></td>
               <td><%= value.productCollection %></td>
               <td>
-                <%= value.productCollection === "DRINK" ? value.productVolume :
+                <%= value.productCollection === "AQUARIUM" ? value.productVolume :
                 value.productSize %>
               </td>
               <td><%= value.productPrice %></td>
@@ -60,14 +60,15 @@
                   class="spec-select new-product-status"
                   id="<%= value._id %>"
                 >
-                  <option value="PAUSE" <%= value.productStatus ==="PAUSE" ? 'selected': '' %> >PAUSE</option>
-                  <option value="PROCESS" <%= value.productStatus ==="PROCESS" ? 'selected': '' %>>PROCESS</option>
-                  <option value="DELETE" <%= value.productStatus ==="DELETE" ? 'selected': '' %> >DELETE</option>
+                  <option value="DISCONTINUED" <%= value.productStatus ==="DISCONTINUED" ? 'selected': '' %> >Discontinued</option>
+                  <option value="AVAILABLE" <%= value.productStatus ==="AVAILABLE" ? 'selected': '' %>>Available</option>
+                  <option value="SOLD_OUT" <%= value.productStatus ==="SOLD_OUT" ? 'selected': '' %> >Sold out</option>
                 </select>
               </td>
             </tbody>
             <% }) %>
-            <!--  LOOP PRODUCTS: END  -->
+
+
           </table>
           <div
             class="long-input"
@@ -100,7 +101,7 @@
             </div>
             <input
               name="productStatus"
-              value="PAUSE"
+              value="DISCONTINUED"
               class="product-status"
               hidden
             />
@@ -129,32 +130,32 @@
             <div class="half-input">
               <label>Product Type</label>
               <select class="product-collection" name="productCollection">
-                <option value="DISH" selected>Dish</option>
-                <option value="SALAD">Salad</option>
-                <option value="DESSERT">Dessert</option>
-                <option value="DRINK">Drink</option>
-                <option value="OTHER">Other</option>
+                <option value="SOFA" selected>Sofa</option>
+                <option value="CHAIR">Chair</option>
+                <option value="TABLE">Table</option>
+                <option value="BED">Bed</option>
+                <option value="AQUARIUM">Aquarium</option>
               </select>
             </div>
 
             <div class="half-input" id="product-collection">
-              <label>Dish Volume</label>
+              <label>Furniture</label>
               <select class="product-size" name="productSize">
                 <option value="SMALL">Small</option>
-                <option value="NORMAL" selected>Normal</option>
+                <option value="MEDIUM" selected>Medium</option>
                 <option value="LARGE">Large</option>
                 <option value="SET">Set</option>
               </select>
             </div>
 
             <div class="half-input" id="product-volume" style="display: none">
-              <label>Drink Volume</label>
+              <label>Aquarium</label>
               <select class="product-volume" name="productVolume">
-                <option value="0.5">0,5 liters</option>
-                <option value="1" selected>1 liters</option>
-                <option value="1.2">1,2 liters</option>
-                <option value="1.5">1,5 liters</option>
-                <option value="2">2 liters</option>
+                <option value="10">10 liters</option>
+                <option value="20" selected>20 liters</option>
+                <option value="50">50 liters</option>
+                <option value="100">100 liters</option>
+                <option value="150">150 liters</option>
               </select>
             </div>
           </div>
@@ -221,7 +222,7 @@
 
                 />
               </div>
-              <input name="restaurantIid" class="restaurant-id" hidden />
+              <input name="restaurantId" class="restaurant-id" hidden />
             </div>
           </div>
 

@@ -1,12 +1,41 @@
+/*export enum ProductSize {
+  SMALL = "SMALL",
+  NORMAL = "NORMAL",
+  LARGE = "LARGE",
+  SET = "SET",
+}
+
+export enum ProductVolume {
+  HALF = 0.5,
+  ONE = 1,
+  ONE_POINT_TWO = 1.2,
+  TWO = 2,
+}
+
+export enum ProductStatus {
+  PAUSE = "PAUSE",
+  PROCESS = "PROCESS",
+  DELETE = "DELETE",
+}
+
+export enum ProductCollection {
+  DISH = "DISH",
+  SALAD = "SALAD",
+  DESERT = "DESERT",
+  DRINK = "DRINK",
+  OTHER = "OTHER",
+}
+  
+*/
 
 // furniture.enum.js
 
-export const FurnitureSize = {
-  SMALL: "SMALL",
-  MEDIUM: "MEDIUM",
-  LARGE: "LARGE",
-  SET: "SET",
-};
+export enum FurnitureSize {
+  SMALL = "SMALL",
+  MEDIUM = "MEDIUM",
+  LARGE = "LARGE",
+  SET = "SET",
+}
 
 export enum FurnitureVolume {
   TEN_LITRES = 10,
@@ -19,32 +48,32 @@ export enum FurnitureVolume {
   FIVE_HUNDRED_LITRES = 500,
 }
 
-export const FurnitureStatus = {
-  AVAILABLE: "AVAILABLE",
-  SOLD_OUT: "SOLD OUT",
-  DISCONTINUED: "DISCONTINUED",
-};
+export enum FurnitureStatus {
+  AVAILABLE = "AVAILABLE",
+  SOLD_OUT = "SOLD OUT",
+  DISCONTINUED = "DISCONTINUED",
+}
 
-export const FurnitureCategory = {
-  SOFA: "SOFA",
-  CHAIR: "CHAIR",
-  TABLE: "TABLE",
-  BED: "BED",
-  OTHER: "OTHER",
-};
+export enum FurnitureCategory {
+  SOFA = "SOFA",
+  CHAIR = "CHAIR",
+  TABLE = "TABLE",
+  AQUARIUM = "AQUARIUM",
+  BED = "BED",
+}
 
 //  ADD
 
-export const FurnitureMaterial = {
-  WOOD: "Wood",
-  METAL: "Metal",
-  PLASTIC: "Plastic",
-  LEATHER: "Leather",
-};
+// export enum FurnitureMaterial {
+//   WOOD = "Wood",
+//   METAL = "Metal",
+//   PLASTIC = "Plastic",
+//   LEATHER = "Leather",
+// }
 
-export const FurnitureType = {
-  MODULAR: "Modular",
-  TRADITIONAL: "Traditional",
-  CUSTOM: "Custom",
-  OUTDOOR: "Outdoor",
-};
+// export enum FurnitureType {
+//   MODULAR = "Modular",
+//   TRADITIONAL = "Traditional",
+//   CUSTOM = "Custom",
+//   OUTDOOR = "Outdoor",
+// }
