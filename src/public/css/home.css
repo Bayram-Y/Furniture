@@ -6,7 +6,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   background: linear-gradient(to right, #a88966, #d8c3a5);
+}
+
+.home-container .bg-primary {
+  border-radius: 20px;
+}
+
+.home-container .bg-primary .text-center .lead {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.home-container .navbar {
+  margin-top: 100px;
+  position: absolute;
+  border-radius: 20px;
+}
+.home-container .my-5 {
+  margin-top: 20px;
+  position: relative;
+}
+
+.home-container .container-footer {
+  border-radius: 20px;
 }
 
 .home-container a {
