@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-import app from "./app";
+import server from "./app";
 
 import mongoose from "mongoose";
 
@@ -9,7 +9,7 @@ mongoose
   .then((data) => {
     console.log("MongoDB connected successfully");
     const PORT = process.env.PORT ?? 3004;
-    app.listen(PORT, function () {
+    server.listen(PORT, function () {
       console.log(`The server is running successfully on port: ${PORT}`);
       console.info(`Admin project on http://localhost:${PORT}/admin \n`);
     });

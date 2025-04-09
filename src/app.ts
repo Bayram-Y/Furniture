@@ -3,12 +3,14 @@ import express, { urlencoded } from "express";
 import path from "path";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
-import { MORGAN_FORMAT } from "./libs/config";
-import { T } from "./libs/types/common";
 import router from "./router";
 import routerAdmin from "./router-admin";
+import { Server as SocketIOServer } from "socket.io";
+import http from "http";
 import session from "express-session";
 import ConnectMongoDb from "connect-mongodb-session";
+import { MORGAN_FORMAT } from "./libs/config";
+import { T } from "./libs/types/common";
 
 const MongoDBStore = ConnectMongoDb(session);
 const store = new MongoDBStore({
@@ -52,4 +54,24 @@ app.set("view engine", "ejs");
 app.use("/admin", routerAdmin); // EJS;
 app.use("/", router); //  REACT
 
-export default app;
+const server = http.createServer(app);
+const io = new SocketIOServer(server, {
+  cors: {
+    origin: true,
+    credentials: true,
+  },
+});
+
+let summaryClient = 0;
+io.on("connection", (socket) => {
+  summaryClient++;
+  console.log(`Connection $ total [${summaryClient}]`);
+
+  socket.on("disconnect", () => {
+    summaryClient--;
+    console.log(`Disconnection $ total [${summaryClient}]`);
+  });
+});
+
+
+export default server;
